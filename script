@@ -1,7 +1,6 @@
 local PlaceId = game.PlaceId
 
 local Games = {
-    -
     [102718061120016] = {
         Name = "Prison RP",
         Run = function()
