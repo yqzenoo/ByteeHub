@@ -1,0 +1,38 @@
+local PlaceId = game.PlaceId
+
+local Games = {
+    -
+    [102718061120016] = {
+        Name = "Prison RP",
+        Run = function()
+            loadstring(game:HttpGet("https://api.jnkie.com/api/v1/luascripts/public/3f8b572f4ddd74c3d80540e606c5786619febb71a13b88ea4ab11c85ce59e6af/download"))()
+        end
+    },
+    [75738770295234] = {
+        Name = "Paint My Keyboard",
+        Run = function()
+            loadstring(game:HttpGet("https://api.jnkie.com/api/v1/luascripts/public/dee17d511af737eef4e69edf4c7b77ffdf2286ff9fa4de2184540374fc84e34e/download"))()
+        end
+    },
+    [74193805629461] = {
+        Name = "+1 Mine Per Click",
+        Run = function()
+            loadstring(game:HttpGet("https://api.jnkie.com/api/v1/luascripts/public/aec01857912b7613fe5fe2a5db285d977e7e6756bb329e8ff86b4b2b359dff20/download"))()
+        end
+    }
+}
+
+local gameData = Games[PlaceId]
+
+if gameData then
+    print("Detected " .. gameData.Name .. ". Loading script...")
+    local success, err = pcall(function()
+        gameData.Run()
+    end)
+    
+    if not success then
+        warn("Failed to load script for " .. gameData.Name .. ": " .. tostring(err))
+    end
+else
+    warn("Game not supported. Your Place ID is: " .. tostring(PlaceId))
+end
